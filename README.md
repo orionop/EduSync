@@ -13,17 +13,17 @@ A comprehensive exam management system for students, faculty, and coordinators.
 	•	Result Publication: Automated processing and grievance handling.
 
 🛠 Tech Stack
-	•	Frontend: React + Astro + TailwindCSS
-	•	Backend: Node.js + Express (Planned)
-	•	Database: MongoDB / PostgreSQL (Planned)
-	•	State Management: Context API / Redux
+	•	Frontend: React + TypeScript + TailwindCSS
+	•	Backend: Supabase
+	•	Database: Supabase 
+	•	State Management: Context API 
 
 🚀 Installation & Setup
 
 1️⃣ Clone the Repository
 
-git clone https://github.com/your-username/edusync-portal.git
-cd edusync-portal
+git clone https://github.com/your-username/Quasar-EdVantage.git
+cd Quasar-EdVantage
 
 2️⃣ Install Dependencies
 
@@ -31,9 +31,9 @@ npm install
 
 3️⃣ Run the Development Server
 
-npm run dev
+npm run dev -- --open
 
-By default, the app runs on http://localhost:5173/ (or another available port).
+By default, the app runs on http://localhost:3003/ (or another available port).
 
 4️⃣ Fix a Custom Port (Optional)
 
@@ -47,9 +47,9 @@ npm run dev
 
 🔑 Login Flow
 	•	Login Page allows users to select:
-	•	Student → Redirects to student/src/pages/Dashboard.tsx
-	•	Faculty → Redirects to faculty/src/pages/Dashboard.tsx
-	•	Exam Coordinator → Redirects to admin/src/pages/AdminDashboard.tsx
+	•	Student → Redirects to student portal
+	•	Faculty → Redirects to faculty portal
+	•	Exam Coordinator → Redirects to admin portal
 	•	No authentication applied yet (for now, login works regardless of input).
 
 📁 Project Structure
