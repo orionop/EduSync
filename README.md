@@ -52,27 +52,6 @@ npm run dev
 	•	Exam Coordinator → Redirects to admin portal
 	•	No authentication applied yet (for now, login works regardless of input).
 
-📁 Project Structure
-
-/edusync-portal
-│── /src
-│   ├── /pages
-│   │   ├── /admin
-│   │   ├── /student
-│   │   ├── /faculty
-│   ├── /components
-│   ├── /utils
-│── astro.config.mjs
-│── package.json
-│── README.md
-
-🤝 Contributing
-	1.	Fork the repository.
-	2.	Create a new branch (feature/new-feature).
-	3.	Commit your changes (git commit -m "Added new feature").
-	4.	Push to your branch (git push origin feature/new-feature).
-	5.	Create a Pull Request.
-
 📜 License
 
 This project is MIT Licensed. See the LICENSE file for more details.
