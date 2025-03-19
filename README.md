@@ -23,7 +23,7 @@ A comprehensive exam management system for students, faculty, and coordinators.
 1️⃣ Clone the Repository
 
 git clone https://github.com/your-username/EduSync.git
-cd Quasar-EdVantage
+cd EduSync
 
 2️⃣ Install Dependencies
 
