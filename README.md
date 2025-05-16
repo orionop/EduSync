@@ -93,6 +93,16 @@ npm run dev
 
 After all four modules are running, navigate to http://localhost:3003 to access the central login page, which will direct you to the appropriate portal based on your role.
 
+### 3. Login Credentials
+
+#### Central Login
+- **Email**: user@edusync
+- **Password**: 1234
+
+#### Admin Login
+- **Email**: admin@edvantage
+- **Password**: 1234
+
 ## Portal Access
 
 The system provides a central login page that directs users to three distinct portals:
