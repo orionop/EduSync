@@ -8,6 +8,7 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   server: {
-    port: 3003
+    port: 3003,
+    host: '0.0.0.0' // Bind to all interfaces (IPv4 and IPv6)
   }
 });

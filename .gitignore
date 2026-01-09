@@ -1,0 +1,81 @@
+# Dependencies
+node_modules/
+yarn.lock
+pnpm-lock.yaml
+# Note: package-lock.json is committed for reproducible builds
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+.next/
+out/
+*.local
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.keys
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Python (if any)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+.ipynb_checkpoints/
+*.ipynb
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Temporary files
+tmp/
+temp/
+*.bak
+*.old
+*.backup
+
+# OS files
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Supabase
+.branches
+.temp
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+
