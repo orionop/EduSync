@@ -40,7 +40,7 @@ type TimetableForm = z.infer<typeof timetableSchema>;
 const TimetableModal: React.FC<TimetableModalProps> = ({ isOpen, onClose }) => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [errors, setErrors] = useState<Partial<TimetableForm>>({});
+  const [errors, setErrors] = useState<Partial<Record<keyof TimetableForm, string>>>({});
   const [generatedSchedule, setGeneratedSchedule] = useState<GeneratedSchedule[]>([]);
   const [showSchedule, setShowSchedule] = useState(false);
   const [formData, setFormData] = useState<TimetableForm>({
@@ -133,7 +133,6 @@ const TimetableModal: React.FC<TimetableModalProps> = ({ isOpen, onClose }) => {
     }
 
     let currentDate = new Date(start);
-    let subjectIndex = 0;
 
     // Skip to first weekday if starting on weekend
     while (currentDate.getDay() === 0 || currentDate.getDay() === 6) {
@@ -230,10 +229,11 @@ const TimetableModal: React.FC<TimetableModalProps> = ({ isOpen, onClose }) => {
       }
     } catch (error) {
       if (error instanceof z.ZodError) {
-        const fieldErrors: Partial<TimetableForm> = {};
+        const fieldErrors: Partial<Record<keyof TimetableForm, string>> = {};
         error.errors.forEach(err => {
           if (err.path[0]) {
-            fieldErrors[err.path[0] as keyof TimetableForm] = err.message;
+            const field = err.path[0] as keyof TimetableForm;
+            fieldErrors[field] = err.message;
           }
         });
         setErrors(fieldErrors);
@@ -535,7 +535,15 @@ const TimetableModal: React.FC<TimetableModalProps> = ({ isOpen, onClose }) => {
             </button>
             <button
               type="button"
-              onClick={() => {
+              onClick={async () => {
+                // TODO: Phase 5 - Replace hardcoded signed URL with dynamic generation
+                // Use Supabase Storage API to generate signed URLs on-demand:
+                // const { data } = await supabase.storage
+                //   .from('templates pdf')
+                //   .createSignedUrl('TT.pdf', 3600);
+                // const pdfUrl = data?.signedUrl;
+                
+                // Temporary: Using hardcoded URL (will expire - needs production fix)
                 const pdfUrl = "https://qdedvnavsxmmilyeiede.supabase.co/storage/v1/object/sign/templates%20pdf/TT.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ0ZW1wbGF0ZXMgcGRmL1RULnBkZiIsImlhdCI6MTc0MTQ5NDgzOCwiZXhwIjoxNzczMDMwODM4fQ.X-dk2kR6QE01tRE8KvDVfQXrefiCabCu0NYJcI6njn0";
                 window.open(pdfUrl, '_blank');
                 toast.success('Opening PDF template...');

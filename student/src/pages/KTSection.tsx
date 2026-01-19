@@ -270,6 +270,9 @@ const KTSection: React.FC = () => {
     try {
       toast.loading('Downloading receipt...');
       
+      // TODO: Phase 5 - Replace hardcoded signed URL with dynamic generation
+      // Use Supabase Storage API to generate signed URLs on-demand
+      // Temporary: Using hardcoded URL (will expire - needs production fix)
       const pdfUrl = "https://qdedvnavsxmmilyeiede.supabase.co/storage/v1/object/sign/templates%20pdf/PAYMENT%20RECEIPT%20updated.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ0ZW1wbGF0ZXMgcGRmL1BBWU1FTlQgUkVDRUlQVCB1cGRhdGVkLnBkZiIsImlhdCI6MTc0MTQzODg4MywiZXhwIjoxNzcyOTc0ODgzfQ.vIH7eXIL6ENKBKeuvSzT0SMRqqL1wqzqUN-a0URno1E";
       
       // Open PDF in a new tab which will trigger the download

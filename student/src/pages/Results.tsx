@@ -125,7 +125,15 @@ const Results: React.FC = () => {
     }
   };
 
-  const downloadScorecard = () => {
+  const downloadScorecard = async () => {
+    // TODO: Phase 5 - Replace hardcoded signed URL with dynamic generation
+    // Use Supabase Storage API to generate signed URLs on-demand:
+    // const { data } = await supabase.storage
+    //   .from('templates pdf')
+    //   .createSignedUrl('Marksheet.pdf', 3600);
+    // const pdfUrl = data?.signedUrl;
+    
+    // Temporary: Using hardcoded URL (will expire - needs production fix)
     const pdfUrl = "https://qdedvnavsxmmilyeiede.supabase.co/storage/v1/object/sign/templates%20pdf/Marksheet.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ0ZW1wbGF0ZXMgcGRmL01hcmtzaGVldC5wZGYiLCJpYXQiOjE3NDE1MDkwMjMsImV4cCI6MTc3MzA0NTAyM30.QqffKxi9ZXrlZlWb5MqOujghVXqadmHe1tBMSQk--lk";
     
     // Create a temporary anchor element

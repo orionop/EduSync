@@ -373,8 +373,17 @@ const StudentPerformanceModal: React.FC<StudentPerformanceModalProps> = ({
     reader.readAsText(file);
   };
   
-  const handleViewTemplate = () => {
-    window.open('https://qdedvnavsxmmilyeiede.supabase.co/storage/v1/object/sign/csv%20file/Template.csv?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJjc3YgZmlsZS9UZW1wbGF0ZS5jc3YiLCJpYXQiOjE3NDE0NTY2MjEsImV4cCI6MTc3Mjk5MjYyMX0.ha6rua4la25VYWO4FYSDueF1g9LLpNQJpNcl996A4hg', '_blank');
+  const handleViewTemplate = async () => {
+    // TODO: Phase 5 - Replace hardcoded signed URL with dynamic generation
+    // Use Supabase Storage API to generate signed URLs on-demand:
+    // const { data } = await supabase.storage
+    //   .from('csv file')
+    //   .createSignedUrl('Template.csv', 3600);
+    // const csvUrl = data?.signedUrl;
+    
+    // Temporary: Using hardcoded URL (will expire - needs production fix)
+    const csvUrl = 'https://qdedvnavsxmmilyeiede.supabase.co/storage/v1/object/sign/csv%20file/Template.csv?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJjc3YgZmlsZS9UZW1wbGF0ZS5jc3YiLCJpYXQiOjE3NDE0NTY2MjEsImV4cCI6MTc3Mjk5MjYyMX0.ha6rua4la25VYWO4FYSDueF1g9LLpNQJpNcl996A4hg';
+    window.open(csvUrl, '_blank');
   };
   
   // Filter students based on search term and grade filter

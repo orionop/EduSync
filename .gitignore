@@ -17,6 +17,19 @@ out/
 .env.local
 .env.*.local
 .env.keys
+.env.production
+.env.production.local
+
+# Supabase keys and secrets (NEVER commit these)
+**/.env
+**/.env.local
+**/.env.*.local
+*supabase*key*
+*supabase*secret*
+*SUPABASE*KEY*
+*SUPABASE*SECRET*
+*SERVICE_ROLE*
+*ANON_KEY*
 
 # Logs
 logs/
@@ -79,3 +92,26 @@ Thumbs.db
 # TypeScript
 *.tsbuildinfo
 
+# Assets (for production - should use CDN)
+# Ignore all images except essential build assets
+assets/
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.gif
+*.ico
+*.heic
+*.webp
+
+# Keep only essential logos that are part of the build
+!app/public/images/uni-logo.png
+!app/public/images/portal-logo.png
+!app/public/images/dark-mode.png
+
+# Development/test SQL files (keep migrations)
+db/fix_user_profile.sql
+db/check_user_profile.sql
+db/seed.sql
+db/combined_seed.sql
+db/seeds/*.sql

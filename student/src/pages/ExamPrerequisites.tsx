@@ -124,6 +124,9 @@ const ExamPrerequisites: React.FC = () => {
     try {
       toast.loading('Downloading hall ticket...');
       
+      // TODO: Phase 5 - Replace hardcoded signed URL with dynamic generation
+      // Use Supabase Storage API to generate signed URLs on-demand
+      // Temporary: Using hardcoded URL (will expire - needs production fix)
       const pdfUrl = "https://qdedvnavsxmmilyeiede.supabase.co/storage/v1/object/sign/templates%20pdf/EdVantage%20Hallticket.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ0ZW1wbGF0ZXMgcGRmL0VkVmFudGFnZSBIYWxsdGlja2V0LnBkZiIsImlhdCI6MTc0MTQzOTA5MSwiZXhwIjoxNzcyOTc1MDkxfQ.knUFQsTBASYKD0H6bn61av2JcKzmsDtqXcYoGvp4dlo";
       
       // Open PDF in a new tab which will trigger the download
@@ -142,6 +145,9 @@ const ExamPrerequisites: React.FC = () => {
     try {
       toast.loading('Downloading application form...');
       
+      // TODO: Phase 5 - Replace hardcoded signed URL with dynamic generation
+      // Use Supabase Storage API to generate signed URLs on-demand
+      // Temporary: Using hardcoded URL (will expire - needs production fix)
       const pdfUrl = "https://qdedvnavsxmmilyeiede.supabase.co/storage/v1/object/sign/templates%20pdf/exam%20application%20form.pdf?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ0ZW1wbGF0ZXMgcGRmL2V4YW0gYXBwbGljYXRpb24gZm9ybS5wZGYiLCJpYXQiOjE3NDE0MzgwOTAsImV4cCI6MTc3Mjk3NDA5MH0.pTTr8KBAdAG6c8oxzLsi-FNp2f6xzx-83ahcEqed_Pc";
       
       // Open PDF in a new tab which will trigger the download
