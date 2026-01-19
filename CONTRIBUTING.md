@@ -28,32 +28,39 @@ Thank you for your interest in contributing to EduSync! This document provides g
 
 ### Setting Up Development Environment
 
-1. Install dependencies for each portal:
+1. Navigate to the `app/` directory and install dependencies:
    ```bash
-   cd student && npm install
-   cd ../admin && npm install
-   cd ../faculty && npm install
-   cd ../login && npm install
+   cd app
+   npm install
    ```
 
-2. Set up environment variables (see `.env.example` files in each portal directory)
-
-3. Set up the database (see `db/README.md`)
-
-4. Run the development servers:
+2. Set up environment variables:
    ```bash
-   # Terminal 1
-   cd student && npm run dev
-   
-   # Terminal 2
-   cd faculty && npm run dev
-   
-   # Terminal 3
-   cd admin && npm run dev
-   
-   # Terminal 4
-   cd login && npm run dev
+   cd app
+   cp .env.example .env
    ```
+   Edit `.env` and add your Supabase credentials:
+   ```env
+   VITE_SUPABASE_URL=your_supabase_project_url
+   VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY=your_supabase_publishable_key
+   ```
+
+3. Set up the database:
+   - Create a Supabase project at [supabase.com](https://supabase.com)
+   - Run the database migrations from `db/migrations/` in order:
+     - `001_create_users_table.sql`
+     - `002_update_users_table_add_missing_fields.sql`
+     - `003_enhance_rls_policies.sql`
+     - `004_update_trigger_for_oauth.sql`
+     - `007_cross_user_connectivity.sql`
+   - Configure OAuth providers in Supabase Dashboard (Google, GitHub, Discord)
+
+4. Run the development server:
+   ```bash
+   cd app
+   npm run dev
+   ```
+   The application will be available at `http://localhost:3000`
 
 ## 📋 Pull Request Process
 
@@ -66,9 +73,11 @@ Thank you for your interest in contributing to EduSync! This document provides g
 2. **Make your changes** following the coding standards below
 
 3. **Test your changes** thoroughly:
-   - Test in all affected portals
+   - Test in all affected portals (student, faculty, admin)
    - Ensure no console errors
    - Test edge cases
+   - Verify responsive design on different screen sizes
+   - Test accessibility features (keyboard navigation, ARIA labels)
 
 4. **Commit your changes** with clear, descriptive commit messages:
    ```bash
@@ -108,10 +117,20 @@ Thank you for your interest in contributing to EduSync! This document provides g
 
 ### File Structure
 
-- Place components in appropriate directories
+The project follows a unified application structure in the `app/` directory:
+- `app/src/components/` - React components organized by portal (admin/, faculty/, student/, shared/)
+- `app/src/routes/` - Route components organized by portal
+- `app/src/context/` - React Context providers
+- `app/src/lib/` - Utility libraries and services
+- `app/src/utils/` - Helper functions
+- `app/src/styles/` - Global styles and theme
+
+Guidelines:
+- Place components in appropriate directories (`admin/`, `faculty/`, `student/`, or `shared/`)
 - Use consistent naming conventions (PascalCase for components)
 - Group related files together
 - Keep files focused on a single responsibility
+- Use `shared/` directory for components used across multiple portals
 
 ### Git Commit Messages
 
@@ -134,10 +153,14 @@ docs: Update installation instructions
 
 ## 🧪 Testing
 
-- Test your changes in all affected portals
+- Test your changes in all affected portals (student, faculty, admin)
 - Test with different user roles (student, faculty, admin)
 - Test edge cases and error scenarios
 - Ensure responsive design works on different screen sizes
+- Test cross-user communication features (notifications, messages, announcements)
+- Verify loading states and empty states are properly displayed
+- Test form validation and error handling
+- Verify accessibility features (keyboard navigation, screen readers)
 
 ## 🐛 Reporting Bugs
 
@@ -166,15 +189,20 @@ When suggesting features:
 
 - Update README.md if you change setup instructions
 - Add JSDoc comments for new functions/components
-- Update CHANGELOG.md with your changes
+- Update CHANGELOG.md with your changes (following the existing format)
 - Keep inline comments clear and helpful
+- Document any new database migrations in `db/migrations/`
+- Update `.env.example` if you add new environment variables
 
 ## 🔒 Security
 
 - **Never commit** API keys, secrets, or credentials
-- Use environment variables for sensitive data
+- Use environment variables for sensitive data (prefixed with `VITE_` for client-side)
+- Never log sensitive information in production (use `import.meta.env.DEV` checks)
 - Report security vulnerabilities privately to the maintainer
 - Follow security best practices
+- Ensure all Supabase keys are in `.gitignore`
+- Never expose service role keys in client-side code
 
 ## ❓ Questions?
 
@@ -182,7 +210,8 @@ If you have questions or need help:
 
 - Open an issue for discussion
 - Check existing issues and pull requests
-- Review the documentation in `docs/` directory
+- Review the README.md for setup instructions
+- Check database migration files in `db/migrations/` for schema changes
 
 ## 🙏 Thank You!
 
