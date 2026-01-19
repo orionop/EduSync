@@ -69,32 +69,6 @@ EduSync is a comprehensive exam management system designed to streamline the ent
 
 ---
 
-## 🛠️ Tech Stack
-
-### Frontend
-- **React 18+** - UI library
-- **TypeScript** - Type-safe JavaScript
-- **TailwindCSS** - Utility-first CSS framework
-- **Vite** - Build tool and dev server
-- **React Router** - Client-side routing
-- **Context API** - State management
-- **React Hot Toast** - Notifications
-
-### Backend & Database
-- **Supabase** - Backend-as-a-Service
-  - Authentication (Email/Password, OAuth: Google, GitHub, Discord)
-  - PostgreSQL Database
-  - Real-time subscriptions
-  - Storage API
-  - Row Level Security (RLS)
-
-### Development Tools
-- **ESLint** - Code linting
-- **PostCSS** - CSS processing
-- **Git** - Version control
-
----
-
 ## 🚀 Installation & Setup
 
 ### Prerequisites
