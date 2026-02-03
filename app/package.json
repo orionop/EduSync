@@ -20,7 +20,7 @@
     "chart.js": "^4.4.8",
     "date-fns": "^3.3.1",
     "framer-motion": "^11.0.8",
-    "jspdf": "^4.0.0",
+    "jspdf": "^4.1.0",
     "jspdf-autotable": "^5.0.2",
     "lucide-react": "^0.344.0",
     "pdf-lib": "^1.17.1",
